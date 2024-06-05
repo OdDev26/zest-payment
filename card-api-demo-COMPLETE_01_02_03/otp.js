@@ -8,6 +8,31 @@ console.log("Reference from local storage: " + transactionRef);
 const url =
   "https://api-devapps.vfdbank.systems/vtech-wallet/api/v1/baas-cards/validate-otp";
 
+const processCardDetails = () => {
+  const payload = {
+    reference: transactionRef,
+    otp: document.getElementById("otp").value,
+  };
+  axios
+    .post(url, payload, {
+      headers: {
+        "Content-Type": "application/json",
+        accesstoken:
+          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiZWFkMTA0YmQtOGRiZS00NzI1LTk1YmItM2MyYTg4MmY5YzcxIiwiaWF0IjoxNzE3NTcxMDAzLCJleHAiOjQ4NzExNzEwMDN9.vOQ8CbIVuezTgTOUKHlddw2SjFQHk8MVmQykH0TK3lXcr038UEOEn_RaRxCqHli49ZyNeZo7xeiY5awgJ5u3Vw",
+      },
+    })
+    .then(function (response) {
+      if (response?.status === "00");
+      {
+        window.location.href =
+          "/card-api-demo-COMPLETE_01_02_03/pages/success.html";
+      }
+    })
+    .catch(function (error) {
+      console.error("There was a problem with your fetch operation:", error);
+    });
+};
+
 function processCardDetails01() {
   // POST Auth Payer
   const payload = {
@@ -20,7 +45,8 @@ function processCardDetails01() {
     method: "POST",
     headers: {
       "Content-Type": "application/json", // Specify content type as JSON
-      "Api-Public-Key": API_PUBLIC_KEY,
+      accesstoken:
+        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiZWFkMTA0YmQtOGRiZS00NzI1LTk1YmItM2MyYTg4MmY5YzcxIiwiaWF0IjoxNzE3NTcxMDAzLCJleHAiOjQ4NzExNzEwMDN9.vOQ8CbIVuezTgTOUKHlddw2SjFQHk8MVmQykH0TK3lXcr038UEOEn_RaRxCqHli49ZyNeZo7xeiY5awgJ5u3Vw",
     },
     body: JSON.stringify(payload), // Convert data to JSON string
   };
@@ -51,6 +77,6 @@ document
   .getElementById("enter-otp")
   .addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
-    processCardDetails01();
+    processCardDetails();
     this.reset(); // Reset form fields
   });

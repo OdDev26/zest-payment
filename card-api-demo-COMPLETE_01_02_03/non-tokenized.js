@@ -3,6 +3,7 @@ import {
   saveToLocalStorage,
   reverseExpiryDate,
 } from "./script/utils.js";
+
 console.log("non-tokenized.js called");
 
 // Replace with the dev (sandbox) URL for testing
@@ -25,21 +26,57 @@ function cardDetails() {
     useExistingCard: false,
     cvv2: document.getElementById("cvv2").value,
     expiryDate: document.getElementById("expiryDate").value,
+    browserInformation: {
+      browser: navigator.userAgent,
+      threeDSecureChallengeWindowSize: "390_X_400", // Assuming this is a fixed value
+      acceptHeaders:
+        navigator.acceptHeader ||
+        "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,ima ge/apng,/;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      colorDepth: screen.colorDepth,
+      javaEnabled: navigator.javaEnabled(), // Deprecated and may not provide accurate information
+      javaScriptEnabled: true, // Assuming JavaScript is enabled by default
+      language: navigator.language,
+      screenHeight: screen.height,
+      screenWidth: screen.width,
+      timeZone: new Date().getTimezoneOffset() / -60, // Convert timezone offset to hours
+    },
   };
   return cardData;
 }
 function checkResponseCode(data) {
   console.log("Code: " + data?.data.code);
-  if (data?.data.redirectHtml == "" || data?.data.redirectHtml == null) {
+  if (data?.redirectHtml == "" || data?.redirectHtml == null) {
     console.log("otp page to be loaded");
     window.location.href = "/card-api-demo-COMPLETE_01_02_03/pages/otp.html";
-  } else if (data?.data.redirectHtml !== "") {
-    processCardDetails03(data?.data.redirectHtml);
+  } else if (data?.redirectHtml !== "") {
+    processCardDetails03(data?.redirectHtml);
   } else {
     return;
   }
 }
 
+const submitProcessCardDetails2 = () => {
+  const payload = cardDetails();
+  axios
+    .post(url, payload, {
+      headers: {
+        "Content-Type": "application/json",
+        accesstoken:
+          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiZWFkMTA0YmQtOGRiZS00NzI1LTk1YmItM2MyYTg4MmY5YzcxIiwiaWF0IjoxNzE3NTcxMDAzLCJleHAiOjQ4NzExNzEwMDN9.vOQ8CbIVuezTgTOUKHlddw2SjFQHk8MVmQykH0TK3lXcr038UEOEn_RaRxCqHli49ZyNeZo7xeiY5awgJ5u3Vw",
+      },
+    })
+    .then(function (response) {
+      console.log("Success message from VFD: " + response?.success);
+      if (response?.success === true) {
+        checkResponseCode(response?.data);
+      } else {
+        console.log("Error status: " + response?.success);
+      }
+    })
+    .catch(function (error) {
+      console.error("There was a problem with your fetch operation:", error);
+    });
+};
 async function submitProcessCardDetails() {
   // POST Auth Payer
 
@@ -94,6 +131,6 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
 
-    submitProcessCardDetails();
+    submitProcessCardDetails2();
     this.reset(); // Reset form fields
   });

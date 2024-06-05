@@ -15,8 +15,27 @@ function cardDetails() {
   };
   return cardData;
 }
+const initializeTransaction = () => {
+  const payload = cardDetails();
+  axios
+    .post(url, payload, {
+      headers: {
+        "Content-Type": "application/json",
+        accesstoken:
+          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiZWFkMTA0YmQtOGRiZS00NzI1LTk1YmItM2MyYTg4MmY5YzcxIiwiaWF0IjoxNzE3NTcxMDAzLCJleHAiOjQ4NzExNzEwMDN9.vOQ8CbIVuezTgTOUKHlddw2SjFQHk8MVmQykH0TK3lXcr038UEOEn_RaRxCqHli49ZyNeZo7xeiY5awgJ5u3Vw",
+      },
+    })
+    .then(function (response) {
+      if (response?.success === true) {
+        processTokenizedCard(response?.data[0].cardId);
+      }
+    })
+    .catch(function (error) {
+      console.error("There was a problem with your fetch operation:", error);
+    });
+};
 
-async function initializeTransaction() {
+async function initializeTransaction2() {
   const payload = cardDetails();
   console.log("Card data: " + payload);
 
@@ -26,7 +45,7 @@ async function initializeTransaction() {
     headers: {
       "Content-Type": "application/json", // Specify content type as JSON
       accesstoken:
-        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiN2EwMTBmOGMtNTMxNy00NTdkLWFjMGUtNjQ0ZjcyZGQyMTljIiwiaWF0IjoxNzE2NTY1ODM1LCJleHAiOjQ4NzAxNjU4MzV9.-IaV1KhD2s_XGd21WxRc58FfGBfgltScP_OqXaYndjFZCGjnfFDBCsWQq3NL9pd7vvRv45EIm8aVQ6gT_QCbNg",
+        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiNjUwMjQyMjYtZTg4ZS00YjFhLTllMWEtYTRmNmNiY2VmMWY5IiwiaWF0IjoxNzE3NDE1OTI5LCJleHAiOjQ4NzEwMTU5Mjl9.07U6Gd8lMeUmNGX17ZntnTfCR4KGKvPvCDjY8W_eqlIr8v13dvkmjXHoGwFM8ILtZ2NT2c-b9LXmsCyOh0sFOw",
     },
     body: JSON.stringify(payload), // Convert data to JSON string
   };
