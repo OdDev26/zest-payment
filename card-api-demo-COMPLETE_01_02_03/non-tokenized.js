@@ -44,7 +44,7 @@ function cardDetails() {
   return cardData;
 }
 function checkResponseCode(data) {
-  console.log("Code: " + data?.data.code);
+  console.log("Code: " + data.code);
   if (data?.redirectHtml == "" || data?.redirectHtml == null) {
     console.log("otp page to be loaded");
     window.location.href = "/card-api-demo-COMPLETE_01_02_03/pages/otp.html";
@@ -66,11 +66,12 @@ const submitProcessCardDetails2 = () => {
       },
     })
     .then(function (response) {
-      console.log("Success message from VFD: " + response?.success);
-      if (response?.success === true) {
-        checkResponseCode(response?.data);
+      console.log("Success message from VFD2: " + response?.data.success);
+
+      if (response?.data.success === true) {
+        checkResponseCode(response.data?.data);
       } else {
-        console.log("Error status: " + response?.success);
+        console.log("Error status: " + response?.data.success);
       }
     })
     .catch(function (error) {

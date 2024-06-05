@@ -26,8 +26,8 @@ const initializeTransaction = () => {
       },
     })
     .then(function (response) {
-      if (response?.success === true) {
-        processTokenizedCard(response?.data[0].cardId);
+      if (response.data?.success === true) {
+        processTokenizedCard(response.data?.data[0].cardId);
       }
     })
     .catch(function (error) {
