@@ -62,7 +62,7 @@ const submitProcessCardDetails2 = () => {
       headers: {
         "Content-Type": "application/json",
         accesstoken:
-          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiZWFkMTA0YmQtOGRiZS00NzI1LTk1YmItM2MyYTg4MmY5YzcxIiwiaWF0IjoxNzE3NTcxMDAzLCJleHAiOjQ4NzExNzEwMDN9.vOQ8CbIVuezTgTOUKHlddw2SjFQHk8MVmQykH0TK3lXcr038UEOEn_RaRxCqHli49ZyNeZo7xeiY5awgJ5u3Vw",
+          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiNzU1ZGE0ZjAtNDQ1Mi00MzM3LWEwYjMtODAzNzdhNmZiMWY5IiwiaWF0IjoxNzE3Njc2MjYyLCJleHAiOjQ4NzEyNzYyNjJ9.fGHwAGrbFNP4ENUK9R7iK7-dtQEh8jp_uF4b5iFtZys7RUxI_wXBDV6UicjbG8-5-W--auF1ktsU7xQ_1ZRbQA",
       },
     })
     .then(function (response) {
@@ -90,7 +90,7 @@ async function submitProcessCardDetails() {
     headers: {
       "Content-Type": "application/json", // Specify content type as JSON
       accesstoken:
-        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiN2EwMTBmOGMtNTMxNy00NTdkLWFjMGUtNjQ0ZjcyZGQyMTljIiwiaWF0IjoxNzE2NTY1ODM1LCJleHAiOjQ4NzAxNjU4MzV9.-IaV1KhD2s_XGd21WxRc58FfGBfgltScP_OqXaYndjFZCGjnfFDBCsWQq3NL9pd7vvRv45EIm8aVQ6gT_QCbNg",
+        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiNzU1ZGE0ZjAtNDQ1Mi00MzM3LWEwYjMtODAzNzdhNmZiMWY5IiwiaWF0IjoxNzE3Njc2MjYyLCJleHAiOjQ4NzEyNzYyNjJ9.fGHwAGrbFNP4ENUK9R7iK7-dtQEh8jp_uF4b5iFtZys7RUxI_wXBDV6UicjbG8-5-W--auF1ktsU7xQ_1ZRbQA",
     },
     body: JSON.stringify(payload), // Convert data to JSON string
   };
