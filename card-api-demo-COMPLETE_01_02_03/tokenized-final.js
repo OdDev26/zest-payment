@@ -30,7 +30,7 @@ export async function submitProcessCardDetails() {
     headers: {
       "Content-Type": "application/json", // Specify content type as JSON
       accesstoken:
-        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMTYiLCJ0b2tlbklkIjoiZTA0NGE0MjMtYjk2Yi00MmE0LWE4NGItNmUwN2Y4NjAzM2I0IiwiaWF0IjoxNzEyMjM1MDExLCJleHAiOjQ4NjU4MzUwMTF9.mlQ6TRz2PZubP2voBSHGO8775HWsB7MT-kon0iuNrbKGUqmnIK7hJ3GRZ0Fom432y81291PVRZuLjmpfqq7ZvA",
+        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiZmZlYTU4YzgtMzI2NS00MWVlLWFiYzgtNzNkMzJjMGVkZjJmIiwiaWF0IjoxNzE4MDE3NjI0LCJleHAiOjQ4NzE2MTc2MjR9.nc1j0bvftZ2lNP0vcgIXcG73sEq6UGcwu716ZvoCuhXpTY0vrwuV4OvLlXxrftCJH9e20Sxoh3H3OcSl3C_UBg",
     },
     body: JSON.stringify(payload), // Convert data to JSON string
   };

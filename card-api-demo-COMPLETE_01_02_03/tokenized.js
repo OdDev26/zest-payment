@@ -22,7 +22,7 @@ const initializeTransaction = () => {
       headers: {
         "Content-Type": "application/json",
         accesstoken:
-          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiNzU1ZGE0ZjAtNDQ1Mi00MzM3LWEwYjMtODAzNzdhNmZiMWY5IiwiaWF0IjoxNzE3Njc2MjYyLCJleHAiOjQ4NzEyNzYyNjJ9.fGHwAGrbFNP4ENUK9R7iK7-dtQEh8jp_uF4b5iFtZys7RUxI_wXBDV6UicjbG8-5-W--auF1ktsU7xQ_1ZRbQA",
+          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiZmZlYTU4YzgtMzI2NS00MWVlLWFiYzgtNzNkMzJjMGVkZjJmIiwiaWF0IjoxNzE4MDE3NjI0LCJleHAiOjQ4NzE2MTc2MjR9.nc1j0bvftZ2lNP0vcgIXcG73sEq6UGcwu716ZvoCuhXpTY0vrwuV4OvLlXxrftCJH9e20Sxoh3H3OcSl3C_UBg",
       },
     })
     .then(function (response) {
@@ -45,7 +45,7 @@ async function initializeTransaction2() {
     headers: {
       "Content-Type": "application/json", // Specify content type as JSON
       accesstoken:
-        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiNjUwMjQyMjYtZTg4ZS00YjFhLTllMWEtYTRmNmNiY2VmMWY5IiwiaWF0IjoxNzE3NDE1OTI5LCJleHAiOjQ4NzEwMTU5Mjl9.07U6Gd8lMeUmNGX17ZntnTfCR4KGKvPvCDjY8W_eqlIr8v13dvkmjXHoGwFM8ILtZ2NT2c-b9LXmsCyOh0sFOw",
+        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyNzMiLCJ0b2tlbklkIjoiZmZlYTU4YzgtMzI2NS00MWVlLWFiYzgtNzNkMzJjMGVkZjJmIiwiaWF0IjoxNzE4MDE3NjI0LCJleHAiOjQ4NzE2MTc2MjR9.nc1j0bvftZ2lNP0vcgIXcG73sEq6UGcwu716ZvoCuhXpTY0vrwuV4OvLlXxrftCJH9e20Sxoh3H3OcSl3C_UBg",
     },
     body: JSON.stringify(payload), // Convert data to JSON string
   };
